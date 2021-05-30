@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import * as Location from "expo-location";
+import WeatherInfo from "./components/WeatherInfo";
 
 const WEATHER_API_KEY = "b9907084d3a3897b632ee419f4d9519a";
 
@@ -57,27 +58,24 @@ export default function App() {
     );
   }
 
-  if (currentWeather) {
-    const {
-      main: { temp },
-    } = currentWeather;
-
-    return (
-      <View style={styles.container}>
-        <Text>Hello {temp}</Text>
-        <StatusBar style="auto" />
+  return (
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <View style={styles.main}>
+        <WeatherInfo currentWeather={currentWeather} />
       </View>
-    );
-  }
-
-  return null;
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
+  },
+  main: {
+    justifyContent: "center",
+    flex: 1,
   },
 });
