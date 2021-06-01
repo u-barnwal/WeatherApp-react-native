@@ -7,11 +7,10 @@ import UnitsPicker from "./components/UnitsPicker";
 import { colors } from "./utils";
 import ReloadIcon from "./components/ReloadIcon";
 import WeatherDetails from "./components/WeatherDetails";
-
-const WEATHER_API_KEY = "b9907084d3a3897b632ee419f4d9519a";
+import { WEATHER_API_KEY } from "@env";
 
 const getWeatherAPIUrl = (latitude, longitude, units) =>
-  `https://api.openweathermap.org/data/2.5/weadther?lat=${latitude}&lon=${longitude}&units=${units}&appid=${WEATHER_API_KEY}`;
+  `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${WEATHER_API_KEY}`;
 
 export default function App() {
   const [errorMessage, setErrorMessage] = useState(null);
