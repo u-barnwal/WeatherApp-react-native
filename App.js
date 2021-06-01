@@ -1,9 +1,10 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
 import * as Location from "expo-location";
 import WeatherInfo from "./components/WeatherInfo";
 import UnitsPicker from "./components/UnitsPicker";
+import { colors } from "./utils";
 
 const WEATHER_API_KEY = "b9907084d3a3897b632ee419f4d9519a";
 
@@ -22,6 +23,7 @@ export default function App() {
 
   async function load() {
     setCurrentWeather(null);
+    setErrorMessage(null);
 
     try {
       let { status } = await Location.requestPermissionsAsync();
@@ -62,7 +64,12 @@ export default function App() {
   }
 
   if (!currentWeather) {
-    return null;
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color={colors.PRIMARY} />
+        <StatusBar style="auto" />
+      </View>
+    );
   }
 
   return (
