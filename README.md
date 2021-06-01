@@ -7,7 +7,7 @@ Single-screen weather app built with React Native. Requests location permission 
 </a>
 
 <a href="./samples/android.jpg">
-  <img align="center" src="./samples/android.jpg" height="300" />
+  <img align="center" src="./samples/android.jpg" height="290" />
 </a>
 
 ## Get Started
