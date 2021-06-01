@@ -2,12 +2,12 @@
 Single-screen weather app built with React Native. Requests location permission and show current weather details.
 
 ## Samples
-<a href="./samples/list.png">
+<a href="./samples/android.png">
   <img align="center" src="./samples/android.jpg" height="200" />
 </a>
 
-<a href="./samples/landing.png">
-  <img align="center" src="./samples/web.png" width="60%" />
+<a href="./samples/web.png">
+  <img align="center" src="./samples/web.png" width="50%" />
 </a>
 
 ## Get Started
