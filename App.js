@@ -11,7 +11,7 @@ import WeatherDetails from "./components/WeatherDetails";
 const WEATHER_API_KEY = "b9907084d3a3897b632ee419f4d9519a";
 
 const getWeatherAPIUrl = (latitude, longitude, units) =>
-  `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=${units}&appid=${WEATHER_API_KEY}`;
+  `https://api.openweathermap.org/data/2.5/weadther?lat=${latitude}&lon=${longitude}&units=${units}&appid=${WEATHER_API_KEY}`;
 
 export default function App() {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -59,7 +59,8 @@ export default function App() {
   if (errorMessage) {
     return (
       <View style={styles.container}>
-        <Text>{errorMessage}</Text>
+        <ReloadIcon load={load} />
+        <Text style={{ textAlign: "center" }}>{errorMessage}</Text>
         <StatusBar style="auto" />
       </View>
     );
