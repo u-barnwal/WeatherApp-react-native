@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, Image } from "react-native";
 import { colors } from "../utils";
 
 export default function WeatherInfo({ currentWeather }) {
-  if (!currentWeather) return null;
-
   const {
     main: { temp },
     weather: [{ icon, description, main }],
