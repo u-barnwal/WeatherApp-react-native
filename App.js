@@ -17,7 +17,7 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
 
-  const [unitsSystem, setUnitsSystem] = useState("metic");
+  const [unitsSystem, setUnitsSystem] = useState("metric");
 
   useEffect(() => {
     load();
@@ -87,7 +87,10 @@ export default function App() {
         <WeatherInfo currentWeather={currentWeather} />
       </View>
 
-      <WeatherDetails currentWeather={currentWeather} />
+      <WeatherDetails
+        currentWeather={currentWeather}
+        unitsSystem={unitsSystem}
+      />
     </View>
   );
 }

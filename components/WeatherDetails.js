@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 import { colors } from "../utils";
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function WeatherDetails({ currentWeather }) {
+export default function WeatherDetails({ currentWeather, unitsSystem }) {
   const {
     main: { feels_like, humidity, pressure },
     wind: { speed },
@@ -12,7 +12,12 @@ export default function WeatherDetails({ currentWeather }) {
   return (
     <View style={styles.details}>
       <View style={styles.detailRow}>
-        <View style={styles.detailBox}>
+        <View
+          style={[
+            styles.detailBox,
+            { borderRightWidth: 1, borderRightColor: colors.BORDER },
+          ]}
+        >
           <FontAwesome5
             name="temperature-low"
             size={25}
@@ -20,7 +25,7 @@ export default function WeatherDetails({ currentWeather }) {
           />
           <View style={styles.detailTexts}>
             <Text>Feels Like</Text>
-            <Text style={styles.textSecondary}>{feels_like}</Text>
+            <Text style={styles.textSecondary}>{feels_like}°</Text>
           </View>
         </View>
 
@@ -32,7 +37,47 @@ export default function WeatherDetails({ currentWeather }) {
           />
           <View style={styles.detailTexts}>
             <Text>Humidity</Text>
-            <Text style={styles.textSecondary}>{humidity}</Text>
+            <Text style={styles.textSecondary}>{humidity}%</Text>
+          </View>
+        </View>
+      </View>
+
+      <View
+        style={[
+          styles.detailRow,
+          { borderTopWidth: 1, borderTopColor: colors.BORDER },
+        ]}
+      >
+        <View
+          style={[
+            styles.detailBox,
+            { borderRightWidth: 1, borderRightColor: colors.BORDER },
+          ]}
+        >
+          <MaterialCommunityIcons
+            name="weather-windy"
+            size={25}
+            color={colors.PRIMARY}
+          />
+          <View style={styles.detailTexts}>
+            <Text>Wind Speed</Text>
+            <Text style={styles.textSecondary}>
+              {`${Math.round(speed)} ${
+                unitsSystem === "metric" ? "m/s" : "miles/h"
+              }`}
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.detailBox}>
+          <MaterialCommunityIcons
+            name="speedometer"
+            size={25}
+            color={colors.PRIMARY}
+          />
+          <View style={styles.detailTexts}>
+            <Text>Pressure</Text>
+            <Text style={styles.textSecondary}>{pressure} hPa</Text>
           </View>
         </View>
       </View>
