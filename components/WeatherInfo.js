@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   textSecondary: {
     fontSize: 20,
     color: colors.SECONDARY,
-    fontWeight: 500,
+    fontWeight: "500",
     marginTop: 10,
   },
 });
